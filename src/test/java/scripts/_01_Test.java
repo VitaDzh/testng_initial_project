@@ -64,6 +64,18 @@ public class _01_Test extends Base{
 
         }
 
+        @Test
+        public void validateCarsSignInPageSocialMediaa() {
+        goToSignInPage();
+        String[] arr = {"Sign in with Facebook", "Sign in with Google", "Sign in with Apple"};
+        int index = 0;
+        for (int i = 0; i < signInPage.signInSocialMedia.size(); i++) {
+            Assert.assertTrue(signInPage.signInSocialMedia.get(i).isDisplayed() && signInPage.signInSocialMedia.get(i).isEnabled());
+            Assert.assertEquals(signInPage.signInSocialMedia.get(i).getText(), arr[index++]);
+        }
+    }
+
+
         /* NAIM's solution
 
     @Test(priority = 2, description = "TASK-2 - Social Media Section")
