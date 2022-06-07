@@ -64,7 +64,7 @@ public class _01_Test extends Base{
 
         }
 
-        /*
+        /* NAIM's solution
 
     @Test(priority = 2, description = "TASK-2 - Social Media Section")
     public void testMediaSection(){
