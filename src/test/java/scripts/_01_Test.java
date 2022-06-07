@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class _01_Test extends Base{
 
@@ -51,7 +52,7 @@ public class _01_Test extends Base{
     @Test(priority = 1, description = "TC2: Validate Cars Sign In Page")
     public void validateCarsSignInPageSocialMedia() {
         goToSignInPage();
-        Assert.assertTrue(signInPage.connectWithSocialHeading.isDisplayed());
+        Assert.assertTrue(signInPage.connectWithSocialHeading.isDisplayed() && signInPage.connectWithSocialHeading.getText().equals("Connect with social"));
 
         Assert.assertTrue(signInPage.signInSocialMedia.get(0).isDisplayed() && signInPage.signInSocialMedia.get(0).isEnabled());
         Assert.assertTrue(signInPage.signInSocialMedia.get(1).isDisplayed() && signInPage.signInSocialMedia.get(1).isEnabled());
@@ -62,6 +63,37 @@ public class _01_Test extends Base{
         Assert.assertEquals(signInPage.signInSocialMedia.get(2).getText(), "Sign in with Apple");
 
         }
+
+        /*
+
+    @Test(priority = 2, description = "TASK-2 - Social Media Section")
+    public void testMediaSection(){
+        driver.get("https://www.cars.com/");
+        carsHomePage.signInButton.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.cars.com/signin/?redirect_path=%2F");
+
+        Assert.assertEquals(carsSignInPage.connectWithSocialHeading.getText(), "Connect with social");
+
+        for (int i = 0; i < carsSignInPage.socialLinks.size(); i++) {
+            Assert.assertTrue(carsSignInPage.socialLinks.get(i).isDisplayed());
+            Assert.assertTrue(carsSignInPage.socialLinks.get(i).isEnabled());
+
+            switch (i){
+                case 0:
+                    Assert.assertEquals(carsSignInPage.socialLinks.get(i).getText(), "Sign in with Facebook");
+                    break;
+                case 1:
+                    Assert.assertEquals(carsSignInPage.socialLinks.get(i).getText(), "Sign in with Google");
+                    break;
+                case 2:
+                    Assert.assertEquals(carsSignInPage.socialLinks.get(i).getText(), "Sign in with Apple");
+                    break;
+                default:
+                    throw new NoSuchElementException("This element was not found!!");
+            }
+        }
+    }
+         */
 
 
     /*

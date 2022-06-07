@@ -51,7 +51,7 @@ public class SignInPage {
     @FindBy(css = ".social-title")
     public WebElement connectWithSocialHeading;
 
-    @FindBy(css = "a[data-component='continue-with-social']") ////div[@class='column-2 sidebar-social-login']//a
+    @FindBy(css = "a[data-component='continue-with-social']") ////div[@class='column-2 sidebar-social-login']//a ----> Naim's @FindBy(css = ".column-2 ul a")
     public List<WebElement> signInSocialMedia;
 
     @FindBy(className = "sds-notification__desc")
