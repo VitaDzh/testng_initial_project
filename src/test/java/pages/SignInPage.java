@@ -36,7 +36,8 @@ public class SignInPage {
     @FindBy(css = "div[class='password-help']>p")
     public WebElement passwordWarning8CharsMessage;
 
-    @FindBy(className = "sds-disclaimer ")
+    @FindBy(xpath = "//form[@class=‘session-form’]/div[2]")
+    //@FindBy(className = "sds-disclaimer ")
     public WebElement disclaimerMessage;
 
     @FindBy(linkText = "Privacy Statement")

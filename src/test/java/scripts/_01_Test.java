@@ -33,7 +33,7 @@ public class _01_Test extends Base{
         Assert.assertTrue(signInPage.passwordInputBox.isDisplayed() && signInPage.passwordInputBoxLabel.getText().equals("Password") && signInPage.passwordInputBox.isEnabled());
         Assert.assertEquals(signInPage.passwordWarning8CharsMessage.getText(), "Minimum of eight characters");
         Assert.assertTrue(signInPage.forgotPasswordQuestion.isDisplayed() && signInPage.forgotPasswordQuestion.isEnabled() && signInPage.forgotPasswordQuestion.getText().equals("Forgot password?"));
-       // Assert.assertTrue(signInPage.disclaimerMessage.isDisplayed());
+        Assert.assertTrue(signInPage.disclaimerMessage.isDisplayed());
        // Assert.assertEquals(signInPage.disclaimerMessage.getText(), "By signing in to your profile, you agree to our  Privacy Statement  and  Terms of Service.");
         Assert.assertTrue(signInPage.signInButton.isDisplayed() && signInPage.signInButton.isEnabled());
     }
