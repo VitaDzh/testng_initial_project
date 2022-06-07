@@ -1,13 +1,9 @@
 package scripts;
 
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
+import pages.SignInPage;
 
 public class _01_Test extends Base{
 
@@ -32,8 +28,9 @@ public class _01_Test extends Base{
         Assert.assertTrue(signInPage.underHeadingParagraph.isDisplayed() && signInPage.underHeadingParagraph.getText().equals("New to Cars.com? Sign up. Are you a dealer?"));
         Assert.assertTrue(signInPage.emailInputBox.isDisplayed() && signInPage.emailInputBoxLabel.getText().equals("Email") && signInPage.emailInputBox.isEnabled());
         Assert.assertTrue(signInPage.passwordInputBox.isDisplayed() && signInPage.passwordInputBoxLabel.getText().equals("Password") && signInPage.passwordInputBox.isEnabled());
-        Assert.assertEquals(signInPage.passwordWarning8CharsMessage.getText(), "Minimum of eight characters");
-        Assert.assertTrue(signInPage.forgotPasswordQuestion.isDisplayed() && signInPage.forgotPasswordQuestion.isEnabled() && signInPage.forgotPasswordQuestion.getText().equals("Forgot password?"));
+        Assert.assertTrue(signInPage.passwordWarning8CharsMinMessage.isDisplayed());
+        Assert.assertEquals(signInPage.passwordWarning8CharsMinMessage.getText(), "Minimum of eight characters");
+        Assert.assertTrue(signInPage.forgotPasswordLink.isDisplayed() && signInPage.forgotPasswordLink.isEnabled() && signInPage.forgotPasswordLink.getText().equals("Forgot password?"));
         Assert.assertTrue(signInPage.disclaimerMessage.isDisplayed());
         Assert.assertEquals(signInPage.disclaimerMessage.getText(), "By signing in to your profile, you agree to our  Privacy Statement  and  Terms of Service.");
         Assert.assertTrue(signInPage.signInButton.isDisplayed() && signInPage.signInButton.isEnabled());
@@ -69,13 +66,15 @@ public class _01_Test extends Base{
         @Test(priority = 1, description = "TC2: Validate Cars Sign In Page")
         public void validateCarsSignInPageSocialMediaa() {
         goToSignInPage();
+
         String[] arr = {"Sign in with Facebook", "Sign in with Google", "Sign in with Apple"};
-        int index = 0;
         for (int i = 0; i < signInPage.signInSocialMedia.size(); i++) {
             Assert.assertTrue(signInPage.signInSocialMedia.get(i).isDisplayed() && signInPage.signInSocialMedia.get(i).isEnabled());
-            Assert.assertEquals(signInPage.signInSocialMedia.get(i).getText(), arr[index++]);
+            Assert.assertEquals(signInPage.signInSocialMedia.get(i).getText(), arr[i]);
         }
-    }
+            Assert.assertTrue(signInPage.connectWithSocialHeading.isDisplayed() && signInPage.connectWithSocialHeading.getText().equals("Connect with social"));
+        }
+
 
 
         /* NAIM's solution
@@ -125,9 +124,11 @@ public class _01_Test extends Base{
     @Test(priority = 3, description = "TC3: Validate user can not sign in with invalid credentials")
     public void validateSignInWithInvalidCredentials(){
         goToSignInPage();
-        signInPage.emailInputBox.sendKeys("johndoe@gmail.com");
+        signInPage.signIn("johndoe@gmail.com", "abcd1234");
+        /*signInPage.emailInputBox.sendKeys("johndoe@gmail.com");
         signInPage.passwordInputBox.sendKeys("abcd1234");
         signInPage.signInButton.click();
+         */
         Assert.assertTrue(signInPage.errorMessage1.isDisplayed() && signInPage.errorMessage1.getText().trim().equals("We were unable to sign you in."));
         Assert.assertTrue(signInPage.errorMessage2.isDisplayed() && signInPage.errorMessage2.getText().trim().equals("Your email or password was not recognized. Try again soon."));
 

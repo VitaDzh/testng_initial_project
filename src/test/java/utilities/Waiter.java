@@ -27,4 +27,9 @@ public class Waiter {
         new WebDriverWait(driver, seconds).until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 
+    public static void waitUntilPageIsLoaded(WebDriver driver, int seconds, String url){
+        new WebDriverWait(driver, seconds).until(ExpectedConditions.urlToBe(url));
+    }
+
+
 }

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 17.778 sec <<< FAILURE! - in TestSuite
+validateCarsSignInPage(scripts._01_Test)  Time elapsed: 4.296 sec  <<< FAILURE!
+java.lang.AssertionError: expected [https://www.cars.com/signin/?redirect_path=%2F] but found [https://www.cars.com/]
+	at scripts._01_Test.validateCarsSignInPage(_01_Test.java:26)
+
+validateCarsSignInPageSocialMediaa(scripts._01_Test)  Time elapsed: 4.479 sec  <<< FAILURE!
+java.lang.AssertionError: expected [https://www.cars.com/signin/?redirect_path=%2F] but found [https://www.cars.com/]
+	at scripts._01_Test.validateCarsSignInPageSocialMediaa(_01_Test.java:68)
+

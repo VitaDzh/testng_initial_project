@@ -18,7 +18,7 @@ public class SignInPage {
     @FindBy(css = "div[class='column-1']>p")
     public WebElement underHeadingParagraph;
 
-    @FindBy(name = "user[email]")
+    @FindBy(name = "user[email]") // id we can use if it is in style or JS
     public WebElement emailInputBox;
 
     @FindBy(css = "label[for='email']")
@@ -30,20 +30,14 @@ public class SignInPage {
     @FindBy(css = "label[for='password']")
     public WebElement passwordInputBoxLabel;
 
-    @FindBy(linkText = "Forgot password?")
-    public WebElement forgotPasswordQuestion;
+    @FindBy(linkText = "Forgot password?") //.password-help a
+    public WebElement forgotPasswordLink;
 
     @FindBy(css = "div[class='password-help']>p")
-    public WebElement passwordWarning8CharsMessage;
+    public WebElement passwordWarning8CharsMinMessage;
 
-    @FindBy(className = "sds-disclaimer")
+    @FindBy(className = "sds-disclaimer") // css--> .password-help a
     public WebElement disclaimerMessage;
-
-    @FindBy(linkText = "Privacy Statement")
-    public WebElement privacyStatementLink;
-
-    @FindBy(linkText = "Terms of Service")
-    public WebElement termsOfServicesLink;
 
     @FindBy(css = "button[class='sds-button']")
     public WebElement signInButton;
@@ -59,6 +53,12 @@ public class SignInPage {
 
     @FindBy(className = "sds-notification__title")
     public WebElement errorMessage1;
+
+    public void signIn(String email, String password){
+        emailInputBox.sendKeys(email);
+        passwordInputBox.sendKeys(password);
+        signInButton.click();
+    }
 
 
 
