@@ -48,7 +48,7 @@ public class _01_Test extends Base{
     And user should be able to “Sign in with Facebook” link with its text and be displayed and enabled
     And user should be able to “Sign in with Google” link with its text and be displayed and enabled
     And user should be able to “Sign in with Apple” link with its text and be displayed and enabled
-     */
+
     @Test(priority = 1, description = "TC2: Validate Cars Sign In Page")
     public void validateCarsSignInPageSocialMedia() {
         goToSignInPage();
@@ -64,7 +64,9 @@ public class _01_Test extends Base{
 
         }
 
-        @Test
+     */
+
+        @Test(priority = 1, description = "TC2: Validate Cars Sign In Page")
         public void validateCarsSignInPageSocialMediaa() {
         goToSignInPage();
         String[] arr = {"Sign in with Facebook", "Sign in with Google", "Sign in with Apple"};
